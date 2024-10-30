@@ -1,4 +1,4 @@
-# Diabetic-Foot-Ulcer
+# Ai-based Diabetic Patient Management
 ## Consequences of Diabetes
 Cardiac diseases, heart attacks, kidney diseases, retinopathy, neurological complications, foot injuries hearing loss, vision problems, bacterial and tinea infections, depression, insomnia, and dementia are examples of consequences.
 
