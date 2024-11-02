@@ -1,10 +1,11 @@
 from fastapi import FastAPI, File, UploadFile
 import numpy as np
 import cv2
-from ultralytics import YOLO  # Ensure you have the YOLOv11 model loaded correctly
+import base64
+from ultralytics import YOLO
 
 app = FastAPI()
-model = YOLO("Model.pt")  # Update with your model path
+model = YOLO("model.pt")  # Update with your model path
 
 @app.post("/detect/")
 async def detect_objects(file: UploadFile = File(...)):
@@ -16,14 +17,15 @@ async def detect_objects(file: UploadFile = File(...)):
     # Perform object detection with YOLO
     results = model.predict(image)
 
-    # Annotate the image (you can customize this part)
+    # Annotate the image
     annotated_image = image.copy()
     for result in results:
         for box in result.boxes:
-            # Draw bounding boxes on the image
             x1, y1, x2, y2 = map(int, box.xyxy[0])
             cv2.rectangle(annotated_image, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
-    # Encode the annotated image to send back
+    # Encode the annotated image to base64
     _, buffer = cv2.imencode('.jpg', annotated_image)
-    return {"image": buffer.tobytes()}  # Send the image back as bytes
+    img_base64 = base64.b64encode(buffer).decode('utf-8')
+
+    return {"image": img_base64}  # Send the image back as a base64 string
