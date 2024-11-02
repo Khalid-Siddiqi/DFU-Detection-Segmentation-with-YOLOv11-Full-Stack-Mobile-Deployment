@@ -5,7 +5,7 @@ import base64
 from ultralytics import YOLO
 
 app = FastAPI()
-model = YOLO("model.pt")  # Update with your model path
+model = YOLO("Model.pt")  # Update with your model path
 
 @app.post("/detect/")
 async def detect_objects(file: UploadFile = File(...)):
