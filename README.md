@@ -17,7 +17,7 @@ My final year project (FYP) focuses on creating an application that leverages de
 ## Features
 
 - **Deep Learning Models:** Implementation of state-of-the-art deep learning models for image classification and segmentation.
-- **User -Friendly Interface:** An intuitive application interface that allows healthcare professionals to easily input data and receive insights.
+- **User-Friendly Interface:** This is an intuitive application interface that allows healthcare professionals to easily input data and receive insights.
 - **Data Visualization:** Visual representation of results to aid in understanding and decision-making.
 - **Real-time Predictions:** Ability to provide real-time analysis and feedback based on user input.
 
@@ -27,5 +27,9 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/diabetic-ulcer-app.git
+   git clone https://github.com/Khalid-Siddiqi/AI-Based-Diabetic-Patient-Management.git
    cd diabetic-ulcer-app
+2. Install packages:
+   ```python
+   pip install -r requirements.txt
+   
