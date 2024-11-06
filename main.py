@@ -15,7 +15,7 @@ async def detect_objects(file: UploadFile = File(...)):
     image = np.frombuffer(image_bytes, dtype=np.uint8)
     image = cv2.imdecode(image, cv2.IMREAD_COLOR)
 
-    # Perform object detection with YOLO
+    # Perform object detection & instance segmentation with YOLOv11
     results = model.predict(image)
 
     # Annotate the image with segmentation masks and bounding boxes
