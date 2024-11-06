@@ -29,7 +29,7 @@ async def detect_objects(file: UploadFile = File(...)):
             if mask_array.shape[1:] != annotated_image.shape[:2]:
                 mask_array = cv2.resize(mask_array[0], (annotated_image.shape[1], annotated_image.shape[0]))
 
-            # Create a color overlay for the mask (green with transparency)
+            # Create a color overlay for the mask (blue with transparency)
             green_overlay = np.zeros_like(annotated_image, dtype=np.uint8)
             green_overlay[mask_array.astype(bool)] = (255, 0, 0)
             annotated_image = cv2.addWeighted(green_overlay, alpha, annotated_image, 1 - alpha, 0)
