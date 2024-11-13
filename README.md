@@ -10,9 +10,9 @@ Our final year project (FYP) focuses on creating a mobile application that lever
 
 - **Programming Language:** Python
 - **Deep Learning Framework:** PyTorch
-- **Data Science Libraries:** NumPy, Pandas, Matplotlib, Scikit-learn
+- **Data Science Libraries:** NumPy, Pandas, Matplotlib,Seaborn, Scikit-learn
 - **Web Framework:** FastAPI
-- **Database:** PostgreSQL (TImeScaleDB)
+- **Database:** PostgreSQL (TimeScaleDB)
 
 ## Features
 
