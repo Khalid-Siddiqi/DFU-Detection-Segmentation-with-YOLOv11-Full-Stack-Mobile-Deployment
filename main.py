@@ -1,6 +1,7 @@
-from fastapi.responses import StreamingResponse
+from fastapi import FastAPI, File, UploadFile, Query
+from fastapi.responses import StreamingResponse, JSONResponse
 import io
-from fastapi import FastAPI, File, UploadFile
+import base64
 import numpy as np
 import cv2
 from ultralytics import YOLO
@@ -9,7 +10,10 @@ app = FastAPI()
 model = YOLO("Instance_Segementation_Model.pt")  # Update with your model path
 
 @app.post("/detect/")
-async def detect_objects(file: UploadFile = File(...)):
+async def detect_objects(
+    file: UploadFile = File(...),
+    format: str = Query("base64", enum=["base64", "stream"])  # Default to base64
+):
     # Read and decode the uploaded image
     image_bytes = await file.read()
     image = np.frombuffer(image_bytes, dtype=np.uint8)
@@ -38,8 +42,16 @@ async def detect_objects(file: UploadFile = File(...)):
             x1, y1, x2, y2 = map(int, box.xyxy[0])
             cv2.rectangle(annotated_image, (x1, y1), (x2, y2), (255, 0, 0), 2)  # Blue bounding box
 
-    # Convert annotated image to JPEG and stream
+    # Convert annotated image to JPEG
     _, buffer = cv2.imencode('.jpg', annotated_image)
     io_buf = io.BytesIO(buffer)
 
-    return StreamingResponse(io_buf, media_type="image/jpeg")
+    if format == "base64":
+        # Convert to Base64
+        base64_image = base64.b64encode(io_buf.getvalue()).decode('utf-8')
+        # Return the Base64 image in a JSON response
+        return JSONResponse(content={"image": base64_image})
+    else:  # format == "stream"
+        # Return the image as a streaming response
+        return StreamingResponse(io_buf, media_type="image/jpeg")
+    
