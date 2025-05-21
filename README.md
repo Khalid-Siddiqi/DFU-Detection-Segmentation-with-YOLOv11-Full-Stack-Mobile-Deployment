@@ -10,7 +10,7 @@ Our final year project (FYP) focuses on creating a mobile application that lever
 
 - **Programming Language:** Python
 - **Deep Learning Framework:** PyTorch
-- **Data Science Libraries:** NumPy, Pandas, Matplotlib,Seaborn, Scikit-learn
+- **Data Science Libraries:** NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn
 - **Web Framework:** FastAPI
 - **Database:** PostgreSQL (TimeScaleDB)
 
@@ -18,7 +18,7 @@ Our final year project (FYP) focuses on creating a mobile application that lever
 
 - **Deep Learning Models:** Implementation of state-of-the-art deep learning models for image classification and segmentation.
 - **User-Friendly Interface:** This intuitive application interface allows healthcare professionals to input data and receive insights easily.
-- **Data Visualization:** Visual representation of results to aid understanding and decision-making.
+- **Data Visualisation:** Visual representation of results to aid understanding and decision-making.
 - **Real-time Predictions:** Ability to provide real-time analysis and feedback based on user input.
 
 ## Installation
