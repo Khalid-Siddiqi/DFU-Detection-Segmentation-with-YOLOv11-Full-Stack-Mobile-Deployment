@@ -4,7 +4,7 @@ Diabetes is a chronic condition that is becoming increasingly prevalent in Pakis
 
 ## Project Overview
 
-Our final year project (FYP) focuses on creating a mobile application that leverages deep learning to assist in treating diabetic foot ulcers and retinopathy for diabetic patients. This project aims to provide impactful solutions that utilize data to improve patient outcomes.
+Our final year project (FYP) focuses on creating a mobile application that leverages deep learning to assist in treating diabetic foot ulcers and retinopathy for diabetic patients. This project aims to provide impactful solutions that utilise data to improve patient outcomes.
 
 ## Technologies Used
 
